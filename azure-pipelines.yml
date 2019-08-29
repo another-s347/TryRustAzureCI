@@ -2,7 +2,7 @@ stages:
   - stage: cargo_nightly_check
     displayName: Compilation check nightly
     jobs:
-      - template: cargo-check.yml
+      - template: azure/cargo-check.yml@templates
         parameters:
           name: cargo_check
           benches: false
@@ -28,7 +28,7 @@ stages:
     displayName: Test suite (nightly)
     dependsOn: cargo_nightly_check
     jobs:
-      - template: tests.yml
+      - template: azure/tests.yml@templates
         parameters:
           envs: {}
           setup: []
