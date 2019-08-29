@@ -1,7 +1,6 @@
 stages:
   - stage: cargo_nightly_check
-      displayName: Compilation check (nightly)
-    dependsOn: []
+    displayName: Compilation check nightly
     jobs:
       - template: cargo-check.yml
         parameters:
@@ -26,7 +25,7 @@ stages:
 #              setup: ${{ parameters.setup }}
 #              all_features: ${{ parameters.check_all_features }}
   - stage: cargo_nightly_test
-      displayName: Test suite (nightly)
+    displayName: Test suite (nightly)
     dependsOn: cargo_nightly_check
     jobs:
       - template: tests.yml
